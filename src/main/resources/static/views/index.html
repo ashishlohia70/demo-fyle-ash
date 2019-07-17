@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="ISO-8859-1">
 	<title>Main Page</title>
 </head>
+
 <body ng-app="demo">
 	<hr />
 	<div class="container" ng-controller="BankController">
-		<div cg-busy="{promise:myPromise, message:'Loading', backdrop:true, delay:300, minDuration:700}"></div>
-		<h3>Bank Branches</h3>
-		<br />
-		<div class="row">
-			<div class="col-sm-3 col-md-3 col-lg-2">
-				<label class="custom-spacing">Select City</label> <select ng-model="selectedCity"
-					ng-options="city for city in cities" class="form-control"
-					ng-change="cityChanged(selectedCity)"></select>
+		<div cg-busy="{promise:myPromise, message:'Loading', backdrop:true, delay:300, minDuration:700}">
+			<h3>Bank Branches</h3>
+			<br />
+			<div class="row">
+				<div class="col-sm-3 col-md-3 col-lg-2">
+					<label class="custom-spacing">Select City</label> <select ng-model="selectedCity"
+						ng-options="city for city in cities" class="form-control"
+						ng-change="cityChanged(selectedCity)"></select>
+				</div>
+				<div class="col-sm-4 col-md-4 col-lg-3 search">
+					<label class="custom-spacing"></label>
+					<input type="search" ng-model='filterValue' class="form-control" placeholder="Search"
+						aria-label="Search" />
+					<span class="close" aria-label="Close" aria-hidden="true" ng-click="filterValue=''">&times;</span>
+				</div>
 			</div>
-			<div class="col-sm-4 col-md-4 col-lg-3 search">
-				<label class="custom-spacing"></label>
-				<input type="search" ng-model='filterValue' class="form-control" placeholder="Search"
-					aria-label="Search" />
-				<span class="close" aria-label="Close" aria-hidden="true" ng-click="filterValue=''">&times;</span>
-			</div>
-		</div>
-		<br />
-		<div class="row">
-			<div class="col-sm-12 col-md-12 col-lg-12">
-				<div ui-grid="gridOptions" ui-grid-pagination ui-grid-resize-columns class="my-grid"></div>
+			<br />
+			<div class="row">
+				<div class="col-sm-12 col-md-12 col-lg-12">
+					<div ui-grid="gridOptions" ui-grid-pagination ui-grid-resize-columns class="my-grid"></div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -42,4 +45,5 @@
 <link rel="stylesheet" href="css/lib/ui-grid.min.css" />
 <link rel="stylesheet" href="css/lib/angular-busy.min.css" />
 <link rel="stylesheet" href="css/app/app.css" />
+
 </html>
