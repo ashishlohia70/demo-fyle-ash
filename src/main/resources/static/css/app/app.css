@@ -1,0 +1,36 @@
+body{
+    background-color: #efefef;
+}
+input[type=search]{
+    border-radius: 12px;
+}
+.container {
+    width: 84%;
+}
+label.custom-spacing{
+	margin-left: 10px;
+}
+.my-grid{
+    height: 365px;
+}
+abbr[title] {
+    text-decoration: none !important;
+    border-bottom: none;
+}
+.ui-grid-pager-control .ui-grid-pager-max-pages-number {
+    vertical-align: middle;
+}
+.ui-grid-pager-panel {
+    background-color: #E6E6E6;
+}
+.ui-grid-pager-control input {
+    width: 60px;
+}
+div.search{
+	float: right;
+}
+span.close{
+    top: -30px;
+    left: -10px;
+    position: relative;
+}
