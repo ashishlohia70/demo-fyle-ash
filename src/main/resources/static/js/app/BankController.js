@@ -2,7 +2,7 @@
 var module = angular.module('demo.controllers', []);
 module.controller("BankController", ["$scope", "BankService",
 	function ($scope, BankService) {
-
+		const FILTER_CRITERIA = ['bank_name', 'branch', 'ifsc', 'address', 'city', 'district', 'state'];
 		$scope.cities = [];
 		$scope.selectedCity = '';
 		$scope.banks = [];
@@ -14,12 +14,11 @@ module.controller("BankController", ["$scope", "BankService",
 			},
 			paginationPageSize: 10
 		};
-
 		$scope.singleFilter = function (renderableRows) {
 			var matcher = new RegExp($scope.filterValue, 'i');
 			renderableRows.forEach(function (row) {
 				var match = false;
-				['bank_name', 'branch', 'ifsc', 'address', 'city', 'district', 'state'].forEach(function (field) {
+				FILTER_CRITERIA.forEach(function (field) {
 					if (row.entity[field].match(matcher)) {
 						match = true;
 					}
@@ -30,7 +29,6 @@ module.controller("BankController", ["$scope", "BankService",
 			});
 			return renderableRows;
 		};
-
 		$scope.gridOptions.columnDefs = [
 			{ name: 'id', width: 75 },
 			{ name: 'bank_name' },
@@ -56,15 +54,12 @@ module.controller("BankController", ["$scope", "BankService",
 		$scope.cityChanged = (selectedCity) => {
 			getBankData(selectedCity);
 		}
-
 		$scope.$watch('filterValue', function (newvalue, oldvalue) {
 			$scope.filter();
 		});
-
 		$scope.filter = function () {
 			$scope.gridApi.grid.refresh();
 		};
-
 		function getBankData(city) {
 			$scope.myPromise = BankService.findByCity(city).then(function (value) {
 				$scope.banks = value.data.response;
