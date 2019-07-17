@@ -3,6 +3,7 @@ var module = angular.module('demo.controllers', []);
 module.controller("BankController", ["$scope", "BankService",
 	function ($scope, BankService) {
 		const FILTER_CRITERIA = ['bank_name', 'branch', 'ifsc', 'address', 'city', 'district', 'state'];
+		$scope.myPromise = {};
 		$scope.cities = [];
 		$scope.selectedCity = '';
 		$scope.banks = [];
