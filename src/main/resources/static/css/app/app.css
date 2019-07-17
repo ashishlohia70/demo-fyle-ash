@@ -34,3 +34,7 @@ span.close{
     left: -10px;
     position: relative;
 }
+.cg-busy-default-sign {
+	top: 100px;
+	border-radius: 7px;
+}

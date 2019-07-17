@@ -7,6 +7,7 @@
 <body ng-app="demo">
 	<hr />
 	<div class="container" ng-controller="BankController">
+		<div cg-busy="myPromise"></div>
 		<h3>Bank Branches</h3>
 		<br />
 		<div class="row">
@@ -33,10 +34,12 @@
 <script src="js/lib/angular.min.js"></script>
 <script src="js/lib/ui-bootstrap-tpls-2.5.0.min.js"></script>
 <script src="js/lib/ui-grid.min.js"></script>
+<script src="js/lib/angular-busy.min.js"></script>
 <script src="js/app/app.js"></script>
 <script src="js/app/BankController.js"></script>
 <script src="js/app/BankService.js"></script>
 <link rel="stylesheet" href="css/lib/bootstrap.min.css" />
 <link rel="stylesheet" href="css/lib/ui-grid.min.css" />
+<link rel="stylesheet" href="css/lib/angular-busy.min.css" />
 <link rel="stylesheet" href="css/app/app.css" />
 </html>

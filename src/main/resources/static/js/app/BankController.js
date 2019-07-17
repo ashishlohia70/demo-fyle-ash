@@ -41,7 +41,7 @@ module.controller("BankController", ["$scope", "BankService",
 			{ name: 'district', enableSorting: false },
 			{ name: 'state', enableSorting: false }
 		];
-		BankService.getCities().then(function (value) {
+		$scope.myPromise = BankService.getCities().then(function (value) {
 			if (value.data.success) {
 				$scope.cities = value.data.response;
 				$scope.selectedCity = $scope.cities[0] || '';
@@ -66,7 +66,7 @@ module.controller("BankController", ["$scope", "BankService",
 		};
 
 		function getBankData(city) {
-			BankService.findByCity(city).then(function (value) {
+			$scope.myPromise = BankService.findByCity(city).then(function (value) {
 				$scope.banks = value.data.response;
 				$scope.gridOptions.data = $scope.banks;
 			}, function (reason) {
